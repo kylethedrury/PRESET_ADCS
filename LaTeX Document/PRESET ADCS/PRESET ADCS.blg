@@ -1,0 +1,55 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: PRESET ADCS.aux
+Reallocating 'name_of_file' (item size: 1) to 6 items.
+The style file: plain.bst
+Reallocating 'name_of_file' (item size: 1) to 10 items.
+Database file #1: reference.bib
+Warning--entry type for "mehrjardi3" isn't style-file defined
+--line 147 of file reference.bib
+Warning--I didn't find a database entry for "nanostar"
+Warning--I didn't find a database entry for "neudose"
+Warning--to sort, need author or key in mehrjardi3
+Warning--can't use both author and editor fields in wertz1978
+You've used 8 entries,
+            2118 wiz_defined-function locations,
+            552 strings with 5263 characters,
+and the built_in function-call counts, 1993 in all, are:
+= -- 193
+> -- 68
+< -- 0
++ -- 29
+- -- 20
+* -- 115
+:= -- 342
+add.period$ -- 24
+call.type$ -- 8
+change.case$ -- 32
+chr.to.int$ -- 0
+cite$ -- 10
+duplicate$ -- 85
+empty$ -- 183
+format.name$ -- 20
+if$ -- 415
+int.to.chr$ -- 0
+int.to.str$ -- 8
+missing$ -- 8
+newline$ -- 43
+num.names$ -- 14
+pop$ -- 42
+preamble$ -- 1
+purify$ -- 26
+quote$ -- 0
+skip$ -- 57
+stack$ -- 0
+substring$ -- 97
+swap$ -- 9
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 28
+warning$ -- 2
+while$ -- 18
+width$ -- 9
+write$ -- 87
+(There were 5 warnings)
