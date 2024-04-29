@@ -407,16 +407,16 @@ To determine the satellite attitude in the ECI frame, the magnetometer tracks th
 \begin{enumerate}
 	\item The objective is to fit the magnetometer data using two parameters $\theta$ and $\phi$ to determine the direction of PRESET's axis of rotation (ie. the body $\hat{y}$-axis) by using the known \textit{International Geomagnetic Reference Frame} data, a model of the geomagnetic field in the ECEF frame. To do this, we derive a generalized rotation matrix to transfer between the ECEF/IGRF frame to the satellite body frame. In other words, we derive a relationship between the field vector in the ECEF frame to the body frame given the radial and azimuthal displacement from the desired attitude.
 	\item Suppose that the body frame is initially in the correct position; that is, the body $\hat{y}$ axis is aligned with the negative orbital $\hat{y}$-axis. This is accomplished by rotating the frame about the $\hat{x}$-axis by $\pi$ radians. 
-	\item Furthermore, let us now assume that the axis has shifted in the radial direction toward the velocity vector from the negative orbital $\hat{y}$-axis by $\theta$. This amounts to a rotation about the orbital $\hat{z}$-axis by $\theta$. Then suppose that this axis is rotated in the azimuthal angle by $\phi$. In this case, the axis of rotation would be $\hat{e}$, the $-\hat{y}$-axis rotated by $\frac{\pi}{2} + \theta$. 
-	\item If the spin-axis has shifted in the body frame, then there will be a further rotation about $\hat{e}$ by some angle; given the inertia tensor of PRESET, we expect this angle to be $1.3 \degree$ in the $+\hat{z}$ direction (however, this might not be the case; this would be an added parameter if the non-rotated fit model isn't successful).
-	\item Finally, we must account for the actual rotation of the satellite at rate $\omega$ around the axis we had at the end of step 3. Denote this vector $\vec{S}$. 
+	\item Furthermore, let us assume that the satellite has shifted in the azimuthal direction by $\phi$. We account for this with a rotation about the orbital $\hat{x}$ axis by $\phi$. Additionally, if there is some radial error $\theta$, we can account for this with an additional rotation about the orbital $\hat{z}$ axis by $\theta$.  
+	\item If the spin-axis has shifted in the body frame, then there will be a further rotation about the $\hat{x}$-axis we must perform before the $R_{z}(\theta)$. This spin-axis error term is expected to be $1.3 \degree$. 
+	\item Finally, we must account for the actual rotation of the satellite at rate $\omega$ around the spin-axis $\vec{S}$. The spin axis can be found by performing the above rotations on the orbital $-\hat{y}$-axis, but without the $1.3 \degree$ rotation.
 \end{enumerate}
 
 Working our way backward through the steps, our 2-parameter expression for the IGRF field in the body frame is given by 
 
 \begin{alignat}{1}
 	\vec{B}_{B} &= C_{B,O} \cdot C_{O, \text{ECEF}} \cdot \vec{B}_{\text{ECEF}} (\varphi, \, \xi, \, r) \notag \\
-	& = \left[ R_{\vec{S}}(\omega t) \cdot R_{\vec{e}}(1.3 \text{ deg}) \cdot R_{\vec{e}}(\phi) \cdot R_{\hat{z}}\left(\pi/2+\theta\right) \cdot R_{\hat{x}}(\pi) \right] \cdot C_{O,\text{ECEF}} \cdot \vec{B}_{\text{ECEF}} \tag{3.23}
+	& = \left[ R_{\vec{S}}(\omega t) \cdot R_{\hat{z}}(\theta) \cdot R_{\hat{x}}(1.3 \degree) \cdot R_{\hat{x}}(\phi) \cdot R_{\hat{x}}(\pi) \right] \cdot C_{O,\text{ECEF}} \cdot \vec{B}_{\text{ECEF}} \tag{3.23}
 \end{alignat}
 
 \begin{figure}[H]
