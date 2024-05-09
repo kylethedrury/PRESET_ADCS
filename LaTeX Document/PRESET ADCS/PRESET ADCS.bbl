@@ -1,8 +1,15 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{mehrjardi3}
 The hysteresis loop and magnetic properties, Accessed on 2024-02-13.
 \newblock Web.
+
+\bibitem{neudose}
+Devan Wagner Andrei Hanu Soo Hyun Byun Eric Johnston Aaron~Pitcher
+  Alexander~Barovier, Dia Martinez~Gracey and Daniel Tajik.
+\newblock Design of the passive magnetic attitude control system for the
+  mcmaster neudose cubesat.
+\newblock 2022.
 
 \bibitem{wertz1978}
 {Computer Sciences Corporation. Attitude Systems Operation}.
@@ -33,6 +40,12 @@ Mohamad~Fakhari Mehrjardi and Mehran Mirshams.
 \newblock Design and manufacturing of a research magnetic torquer rod.
 \newblock In {\em Fourth International Conference on Experimental Mechanics},
   2009.
+
+\bibitem{nanostar}
+NANOSTAR Project.
+\newblock Attitude determination and control.
+\newblock Available online, 2019.
+\newblock Accessed on 27 February 2024.
 
 \bibitem{stickler}
 A.~C. Stickler and K.~T. Alfriend.

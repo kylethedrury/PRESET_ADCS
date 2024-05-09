@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.4.21)  28 APR 2024 22:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.4.21)  7 MAY 2024 19:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -601,9 +601,6 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 147.
 
-
-LaTeX Warning: Citation `nanostar' on page 5 undefined on input line 155.
-
 [5] [6]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
@@ -621,7 +618,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 167.
 
-<ECI and ECEF Frame.png, id=255, 256.96pt x 204.09584pt>
+<ECI and ECEF Frame.png, id=260, 256.96pt x 204.09584pt>
 File: ECI and ECEF Frame.png Graphic file (type png)
 <use ECI and ECEF Frame.png>
 Package pdftex.def Info: ECI and ECEF Frame.png  used on input line 173.
@@ -630,7 +627,7 @@ Package pdftex.def Info: ECI and ECEF Frame.png  used on input line 173.
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 178.
 
-<Orbital Frame.png, id=257, 102.04791pt x 53.86792pt>
+<Orbital Frame.png, id=262, 102.04791pt x 53.86792pt>
 File: Orbital Frame.png Graphic file (type png)
 <use Orbital Frame.png>
 Package pdftex.def Info: Orbital Frame.png  used on input line 184.
@@ -690,9 +687,6 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 382.
 
-
-LaTeX Warning: Citation `neudose' on page 10 undefined on input line 384.
-
 [10]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
@@ -712,12 +706,12 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 403.
 
 [11]
-<IGRF Fit.png, id=319, 581.17125pt x 304.88907pt>
+<IGRF Fit.png, id=326, 581.17125pt x 304.88907pt>
 File: IGRF Fit.png Graphic file (type png)
 <use IGRF Fit.png>
 Package pdftex.def Info: IGRF Fit.png  used on input line 424.
 (pdftex.def)             Requested size: 443.57848pt x 232.70901pt.
-<IGRF Fit 2.png, id=321, 604.50844pt x 262.73157pt>
+<IGRF Fit 2.png, id=328, 604.50844pt x 262.73157pt>
 File: IGRF Fit 2.png Graphic file (type png)
 <use IGRF Fit 2.png>
 Package pdftex.def Info: IGRF Fit 2.png  used on input line 433.
@@ -749,12 +743,12 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 446.
 
-<Edge On w Satellite.jpg, id=335, 554.07pt x 542.025pt>
+<Edge On w Satellite.jpg, id=342, 554.07pt x 542.025pt>
 File: Edge On w Satellite.jpg Graphic file (type jpg)
 <use Edge On w Satellite.jpg>
 Package pdftex.def Info: Edge On w Satellite.jpg  used on input line 464.
 (pdftex.def)             Requested size: 217.35588pt x 212.62949pt.
-<Face On w Satellite.jpg, id=336, 558.58687pt x 532.99126pt>
+<Face On w Satellite.jpg, id=343, 558.58687pt x 532.99126pt>
 File: Face On w Satellite.jpg Graphic file (type jpg)
 <use Face On w Satellite.jpg>
 Package pdftex.def Info: Face On w Satellite.jpg  used on input line 465.
@@ -771,7 +765,7 @@ s been already used, duplicate ignored
 l.474 I
        nitial alignment shall be achieved by magnetizing PRESET's z-TQR near...
  <./Edge On w Satellite.jpg> <./Face On w Satellite.jpg>]
-<Initial Alignment.png, id=345, 913.91437pt x 566.86781pt>
+<Initial Alignment.png, id=352, 913.91437pt x 566.86781pt>
 File: Initial Alignment.png Graphic file (type png)
 <use Initial Alignment.png>
 Package pdftex.def Info: Initial Alignment.png  used on input line 478.
@@ -781,7 +775,7 @@ Package pdftex.def Info: Initial Alignment.png  used on input line 478.
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 483.
 
-<y-Axis Alignment.png, id=346, 1343.77031pt x 761.84625pt>
+<y-Axis Alignment.png, id=353, 1343.77031pt x 761.84625pt>
 File: y-Axis Alignment.png Graphic file (type png)
 <use y-Axis Alignment.png>
 Package pdftex.def Info: y-Axis Alignment.png  used on input line 489.
@@ -803,7 +797,7 @@ s been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.497 
        <./Initial Alignment.png> <./y-Axis Alignment.png>]
-<Spin-Up.png, id=355, 1375.38844pt x 757.32938pt>
+<Spin-Up.png, id=362, 1375.38844pt x 757.32938pt>
 File: Spin-Up.png Graphic file (type png)
 <use Spin-Up.png>
 Package pdftex.def Info: Spin-Up.png  used on input line 500.
@@ -813,7 +807,7 @@ Package pdftex.def Info: Spin-Up.png  used on input line 500.
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 505.
 
-<Orbital Plane Alignment.png, id=356, 1137.4997pt x 738.50906pt>
+<Orbital Plane Alignment.png, id=363, 1137.4997pt x 738.50906pt>
 File: Orbital Plane Alignment.png Graphic file (type png)
 <use Orbital Plane Alignment.png>
 Package pdftex.def Info: Orbital Plane Alignment.png  used on input line 511.
@@ -822,7 +816,7 @@ Package pdftex.def Info: Orbital Plane Alignment.png  used on input line 511.
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 516.
 
-<Spin-Axis Tilt Correction.png, id=357, 1116.42094pt x 724.95844pt>
+<Spin-Axis Tilt Correction.png, id=364, 1116.42094pt x 724.95844pt>
 File: Spin-Axis Tilt Correction.png Graphic file (type png)
 <use Spin-Axis Tilt Correction.png>
 Package pdftex.def Info: Spin-Axis Tilt Correction.png  used on input line 522.
@@ -881,7 +875,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 609.
 
-<R7.png, id=387, 883.3pt x 555.07375pt>
+<R7.png, id=394, 883.3pt x 555.07375pt>
 File: R7.png Graphic file (type png)
 <use R7.png>
 Package pdftex.def Info: R7.png  used on input line 622.
@@ -899,22 +893,19 @@ L3 programming layer <2024-01-04>
  ***********
 
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `"PRESET ADCS".out' has not changed.
 (rerunfilecheck)             Checksum: F46C540F49594AFDC3616BFA75D2B80E;7854.
  ) 
 Here is how much of TeX's memory you used:
- 13005 strings out of 474486
- 204559 string characters out of 5743755
+ 13009 strings out of 474486
+ 204531 string characters out of 5743755
  1945542 words of memory out of 5000000
- 34992 multiletter control sequences out of 15000+600000
+ 34994 multiletter control sequences out of 15000+600000
  563193 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,15n,79p,859b,481s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,15n,79p,850b,481s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\kylem\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1000.pk><C:/Users/kylem/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmbx10.pfb><C:/Users/kylem/AppData/Local/Programs/MiKTeX/fonts/type1/publ
@@ -933,9 +924,9 @@ ublic/amsfonts/cm/cmr9.pfb><C:/Users/kylem/AppData/Local/Programs/MiKTeX/fonts/
 type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/kylem/AppData/Local/Programs/MiKT
 eX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/kylem/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on "PRESET ADCS.pdf" (21 pages, 3604931 bytes).
+Output written on "PRESET ADCS.pdf" (21 pages, 3605848 bytes).
 PDF statistics:
- 508 PDF objects out of 1000 (max. 8388607)
- 130 named destinations out of 1000 (max. 500000)
+ 515 PDF objects out of 1000 (max. 8388607)
+ 132 named destinations out of 1000 (max. 500000)
  388 words of extra memory for PDF output out of 10000 (max. 10000000)
 

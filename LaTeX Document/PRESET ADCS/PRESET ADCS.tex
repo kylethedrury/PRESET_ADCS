@@ -116,30 +116,30 @@ To perform actuator-sizing calculations, it is critical to know what sort of dis
 
 \subsection{\color{black}{Gravity Gradient}}
 
-The gravity gradient torque is caused by differential gravitational forces along the body of the satellite and is denoted $\mathbf{T_{gg}}$. It is given by the following:
+The gravity gradient torque is caused by differential gravitational forces along the body of the satellite and is denoted $\mathbf{T_{gg}}$. It is given by \cite{nanostar}:
 
 \begin{align}
-    \vec{T}_{gg} = \frac{3 \mu}{r_{p}^3}|\vec{I}_{max}-\vec{I}_{min}|\sin{2 \theta} \tag{2.1}
+    \mathbf{T_{gg}} = \frac{3 \mu}{r_{p}^3}|\mathbf{I_{max}}-\mathbf{I_{min}}|\sin{2 \theta} \tag{2.1}
 \end{align}
 
  where $\mu$ is the gravitational parameter $3.986 \times 10^{14} \textup{m}^3 \textup{s}^{-2}$, $r_{p}$ is the periapsis radius in meters, $\theta$ is the angular deviation from the nadir, and $\mathbf{I_{min/max}}$ is the minimum/maximum moment of inertia about either of the principle axes. The gravity gradient torque is found to be on the order of $10^{-7}$ Nm.
 
 \subsection{\color{black}{Solar Pressure}}
 
-Solar pressure torque is caused by photons that impinge on the satellite's surface and transfer some of their momentum, giving rise to a force that has the potential to turn the satellite. It is denoted as $\mathbf{T_{sp}}$ and given by the following:
+Solar pressure torque is caused by photons that impinge on the satellite's surface and transfer some of their momentum, giving rise to a force that has the potential to turn the satellite. It is denoted as $\mathbf{T_{sp}}$ and given by \cite{nanostar}:
 
 \begin{align}
-    \vec{T}_{sp} = \frac{\Phi}{c}A_{sp}(1+q)\cos{(i)}|\vec{c}_{sp} - \vec{c}_{g}| \tag{2.2}
+    \mathbf{T_{sp}} = \frac{\Phi}{c}A_{sp}(1+q)\cos{(i)}|\mathbf{c_{sp}} - \mathbf{c_{g}}| \tag{2.2}
 \end{align}
 
  where $\Phi$ is the solar flux (which is 1367 W/m$^{2} \pm 3\%$ at the Earth's orbit), $\vec{c_{sp}}$ and $\vec{c_{g}}$ are the centers of solar pressure and gravity, $i$ is the angle between the normal and the photons, $q$ is the reflectivity of the material (derived from the absorptivity of the solar cells, which over the majority of the satellite surface), $A_{sp}$ is the projected area along the sun vector, and $c$ is the speed of light. $\vec{T_{sp}}$ is found to be on the order of $10^{-11}$ Nm.
 
 \subsection{\color{black}{Aerodynamic Drag}}
 
-This torque is caused by the air resistance met by the satellite traveling through the high atmosphere. It is denoted $\mathbf{T_{sp}}$ and given by the following:
+This torque is caused by the air resistance met by the satellite traveling through the high atmosphere. It is denoted $\mathbf{T_{sp}}$ and given by \cite{nanostar}:
 
 \begin{align}
-    \vec{T}_{a} = \frac{1}{2} \rho_{atm,p} C_{D} A_{a} v_{p}^2 |\vec{c}_{a} - \vec{c}_{g}| \tag{2.3}
+    \mathbf{T_{a}} = \frac{1}{2} \rho_{atm,p} C_{D} A_{a} v_{p}^2 |\mathbf{c_{a}} - \mathbf{c_{g}}| \tag{2.3}
 \end{align}
 
  At a 500km orbit, the atmospheric density $\rho_{atm}$ is $7 \times 10^{-13}$ kg/m$^2$. The drag coefficient $C_{D}$ is taken to be a liberal 2.5, and the velocity at the periapsis is approximately 4300 m/s. $\mathbf{c_{a}}$ is the pressure center, and $\mathbf{c_{g}}$ is again the center of gravity. The aerodynamic drag torque is found to be on the order of $10^{-9}$ Nm. 
@@ -149,7 +149,7 @@ This torque is caused by the air resistance met by the satellite traveling throu
 The magnetic torque is caused by the magnetic component in the satellite and electrical currents traveling through circuit boards and other electrical components. A precise determination of the satellite dipole moment is a complex matter, but we can make some approximations.
 
 \begin{align}
-    \vec{T}_{m} = D_{m} \frac{\lambda M_{m}}{r_{p}^3} \tag{2.4}
+    \mathbf{T_{m}} = D_{m} \frac{\lambda M_{m}}{r_{p}^3} \tag{2.4}
 \end{align}
 
  $M_{m}$ is the magnetic moment of the Earth, given as $7.96 \times 10^{15}$ Tm$^{3}$. $\lambda$ is a unitless parameter in [1,2] that depends on the inclination of the satellite orbit. Since PRESET is in a polar orbit, $\lambda=2$. The periapsis radius is again taken to be 500km above the Earth's surface. According to \cite{nanostar}, $D_{m}$ typically ranges between 0.1 and 20 Am$^2$. If we refer to the CubeSpace page for the torque rods, the CR0003 is suitable for 3U cubesats like PRESET, and is capable of a dipole moment of 0.3 Am$^2$. For this reason, we will take $D_{m}$ to be 0.3 Am$^2$. Making these substitutions yields a magnetic torque on the order of $10^{-5}$ Nm. From this, it is clear that the magnetic torque will be the dominant disturbance on the satellite by two orders of magnitude. 
