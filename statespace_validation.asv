@@ -12,7 +12,7 @@ q3 = 0;
 
 % Spin initially about y-axis 
 omega_x = 0;   
-omega_y = 0;   
+omega_y = 1;   
 omega_z = 0;   
 
 % Define inertia tensor
@@ -67,7 +67,7 @@ stateSpaceModel = @(t,x) A(x)*x + B*u(t);
 
 
 % Set time span for simulation
-tspan = [0 100];
+tspan = [0 20];
 
 % Solve the state-space model using ode45
 [t, x] = ode23tb(stateSpaceModel, tspan, x0);
