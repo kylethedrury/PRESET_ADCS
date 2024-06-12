@@ -405,7 +405,7 @@ xlabel('Time (s)');
 ylabel('Angular Momentum (kg*m^2/s)');
 title('Total Angular Momentum of States');
 
-%% RK4 function solver
+%% Testing function
 close;
 clear;
 clc;
@@ -418,30 +418,12 @@ clc;
 % h is the time step used 
 % t is the amount of time to be solved for in seconds
 
-%Initial attitude (ensure unit quaternion)
-q0 = 1;
-q1 = 0;
-q2 = 0;
-q3 = 0;
+tf = 90*60*5;
 
-%Initial angular velocities
-wx = 1;
-wy = 0;
-wz = 0;
-
-%Control torques
-ux = 0;
-uy = 0;
-uz = 0;
-
-%Time parameters
-h = 0.001;  %time step
-tf = 40;   %solve time
-
-solve_RK4(q0,q1,q2,q3, wx,wy,wz, ux,uy,uz, h,tf)
+solve_RK4(1,0,0,0,0,1,0,0,0,0,0.01,tf)
 
 
-%% RK4 function definition
+%% RK4 function
 
 function RK4 = solve_RK4(x1, x2, x3, x4, x5, x6, x7, u_x, u_y, u_z, h, t)
  
