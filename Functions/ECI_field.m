@@ -5,13 +5,13 @@
 function output = ECI_field(LTDN, t)
 
     if LTDN == 3
-        filepath = fullfile('..', 'Simulink Parameters/3am_LTDN/', 'PRESET_ECI_Field_3am_LTDN.csv');
+        filepath = fullfile('..', 'Simulink Parameters/3am_LTDN/', 'PRESET_IGRF_3am_LTDN.csv');
 
     elseif LTDN == 6
-        filepath = fullfile('..', 'Simulink Parameters/6am_LTDN/', 'PRESET_ECI_Field_6am_LTDN.csv');
+        filepath = fullfile('..', 'Simulink Parameters/6am_LTDN/', 'PRESET_IGRF_6am_LTDN.csv');
 
     else
-        filepath = fullfile('..', 'Simulink Parameters/12pm_LTDN/', 'PRESET_ECI_Field_12pm_LTDN.csv');
+        filepath = fullfile('..', 'Simulink Parameters/12pm_LTDN/', 'PRESET_IGRF_12pm_LTDN.csv');
 
     end
 
