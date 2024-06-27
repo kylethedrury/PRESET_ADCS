@@ -1,48 +1,69 @@
-% THIS IS A SCRIPT FOR PERFORMING DETUMBLING SIMULATIONS
+% THIS IS A SCRIPT FOR PERFORMING DETUMBLING SIMULATIONS-- be sure to add /Parameters and /Functions to path
 % AUTHOR: K. DRURY
 
-time = 10000;    % specifiy time window in seconds
-LTDN = 3;        % specifiy LTDN
-rotation = pi;   % specifiy the norm of the initial rotation
-K = 3.5e-5;      % detumble gain constant
+%% SETUP
 
-[J, q_initial, omega_initial, ECI_pos, ECI_vel, ECEF_pos, ECEF_vel, LLA_pos, LLA_vel, B_ECF, B_ECI, t] = setup(time, LTDN, rotation);
+B = 4.5e-5;        % average field
+w = pi/4;          % expected tip-off rate
+mu_max = 0.45;     % max moment with z-TQR
+K = mu_max/(B*w);  % tuned detumble gain
 
-R = quat2dcm(q_initial);  % initial DCM matrix for BF to ECI
+endpoint = 86400*100;  % stop point in seconds (currently set to 1 day-- *100 to convert to 0.01s)
+LTDN = 3;              % specifiy LTDN
 
-B_BF = zeroes(3, t);               % allocate array for storing the magnetic field in BF 
-B_BF(1) = R \ ECI_field(LTDN, 1);  % initial body field vector 
+omega_initial = [0; pi/4; 0]; % initial omega 
+q_initial = [1; 0; 0; 0];     % initial q
 
-x_array = zeroes(7, t);     % allocate array for state vectors
-xdot_array = zeroes(7, t);  % allocate array for state derivative vectors 
+[time, position, velocity, field] = get_data(LTDN);  % get data; it takes about 15-20 mins for data to be loaded in the 0.01s case
 
-x_array(1) = [q_initial; omega_initial];       % initial state
-mu = [0; 0; 0];                                % initial control vector
-xdot_array(1) = rk4(x_array(1), mu, 1, LTDN);  % initial state derivative
+%% INITIALIZE AND ALLOCATE ARRAYS
 
-for i = 2:t  % A loop to run the detumble algorithm (t in same units as CSVs)
+timestamps = 0:1:endpoint-1;        % initialize an array of timestamps from 0 to 'endpoint' incrementing by 1s each time
+B_BF = zeros(3, endpoint-1);        % allocate array for storing the magnetic field in BF; 3 rows, N columns
+x_array = zeros(7, endpoint-1);     % allocate array for state vectors; 
+xdot_array = zeros(7, endpoint-1);  % allocate array for state derivative vectors 
+
+x_array(:,1) = [q_initial; omega_initial];       % initial state
+u = [0; 0; 0];                                   % initial control vector
+DCM = quat2dcm(q_initial');                      % initial DCM matrix for BF to ECI
+B_BF(:,1) = DCM \ field(:,1);                    % initial body field vector 
+xdot_array(:,1) = state_space(x_array(:,1), u);  % initial state derivative
+
+%% SIMULATION
+
+for i = 2:endpoint  % A loop to run the detumble algorithm (steps of 1s)
     
-    x_array(i) = x_array(i-1); % initially set the next state to the previous one; prepare for numerical integration
+    x_array(:,i) = x_array(:,i-1) + (xdot_array(:,i-1)*0.01);  % get new state
+    q = x_array(1:4,i) / norm(x_array(1:4,i));                 % get the new attitude quaternion and normalize it
+    x_array(:,i) = [q; x_array(5:7,i)];                        % save the new state w normalized quaternion
+    DCM = quat2dcm(q');                                        % get new DCM
+    B_BF(:,i) = DCM \ field(:,i);                              % get new field in BF
+    
+    Bdot = (B_BF(:,i) - B_BF(:,i-1))/0.01;  % get Bdot; dt = 0.01s
+    mu = -K * Bdot;                         % get control vector 
+    total_mu = mu(1) + mu(2) + mu(3);       % get total moment (must ensure we don't exceed max moment)
 
-    for j = 0:99   % call rk4, advancing by 0.01s each time
-        xdot_array(i) = rk4(x_array(i), mu, i-1 + 0.01*j, LTDN);
-        x_array(i) = x_array(i) + (xdot_array(i) * 0.01);
+    if total_mu > mu_max
+        mu = mu * (mu_max / total_mu); % normalize
     end
 
-    state = x_array(i);                % get the new state
-    q = state(1:4);                    % get the new attitude quaternion
-    B_ECI = ECI_field(LTDN, i);        % get the new ECI field at current time
-    R = quat2dcm(q);                   % get new rotation matrix
-    B_BF(i) = R \ B_ECI;               % get new field in BF
-    Bdot = B_BF(i-1) - B_BF(i);        % get Bdot; dt = 1s
-    mu = -K * Bdot;                    % get control vector 
-    total_mu = mu(1) + mu(2) + mu(3);  % get total moment (must ensure we don't exceed max moment)
+    u = cross(mu, B_BF(:,i));  % get the control torque in BF
 
-    if total_mu > 0.4
-        mu = mu * (0.4 / total_mu);    % normalize
+    xdot_array(:,i) = state_space(x_array(:,i), u); % get xdot for calculating the next state on next loop
+
+    disp(i/endpoint) % Loading bar
+    %disp(x_array(:,i)')
+    %disp(xdot_array(:,i)') 
+    %disp(mu') 
+
+    if all(isnan(xdot_array(:,i)))
+        disp('Vector xdot contains only NaN values. Stopping the script.');
+        break; % Exit the loop if a NaN occurs
     end
 
 end 
+
+%% Plot
 
 % Open a new figure
 figure;
@@ -50,21 +71,21 @@ figure;
 % Hold the plot to overlay multiple plots on the same axes
 hold on;
 
-% Loop through each element
-for i = 1:n
-    % Extract the i-th 7x1 vector
-    current_vector = x_array(:, i);
-    
-    % Plot each component of the current vector
-    plot(1:7, current_vector, 'DisplayName', ['Vector ' num2str(i)]);
-end
+% Extract omega for plotting
+omega_x = x_array(5, :);
+omega_y = x_array(6, :);
+omega_z = x_array(7, :);
+
+plot(timestamps, omega_x, 'r', 'DisplayName', 'wx'); 
+plot(timestamps, omega_y, 'g', 'DisplayName', 'wy');
+plot(timestamps, omega_z, 'b', 'DisplayName', 'wz');
 
 % Add labels and legend
-xlabel('Component Index');
-ylabel('Value');
-title('Components of 7x1 Vectors');
+xlabel('Time');
+ylabel('Omega');
+title('Detumbling');
 legend show;
 
-% Release the hold
-hold off;
+% Display grid
+grid on;
 
